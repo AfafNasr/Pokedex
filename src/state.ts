@@ -29,7 +29,7 @@ export function initState(): State {
     prompt: "Pokedex > ",
   });
 
-  const pokeapi = new PokeAPI();
+  const pokeapi = new PokeAPI(300000);
 
   
   const commands: Record<string, CLICommand> = {
