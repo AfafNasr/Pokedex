@@ -7,7 +7,7 @@ A high-performance Pokedex CLI built with **TypeScript** and **Node.js**. Develo
 * **Interactive REPL**: A seamless command-line experience.
 * **Catch & Inspect**: Logic-based capture mechanics and data visualization.
 
-  ##  Commands
+##  Commands
 | Command | Description |
 | :--- | :--- |
 | `map` / `mapb` | Navigate through world areas (Next/Prev). |
@@ -17,10 +17,10 @@ A high-performance Pokedex CLI built with **TypeScript** and **Node.js**. Develo
 | `pokedex` | List all Pokémon in your collection. |
 
 ## Tech Stack
-*Language: TypeScript
-*Runtime: Node.js
-*API: PokeAPI
-*Environment: Linux / WSL
+* **Language**: TypeScript
+* **Runtime**: Node.js
+* **API**: PokeAPI
+* **Environment**: Linux / WSL
 
 ## Quick Start
 ```bash
