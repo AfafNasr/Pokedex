@@ -4,12 +4,13 @@ import { commandExit } from "./command_exit.js";
 import { commandHelp } from "./command_help.js";
 import { commandMap } from "./command_map.js";
 import { commandMapb } from "./command_mapb.js";
-
+import { commandExplore } from "./command_explore.js";
+import { commandCatch } from "./command_catch.js";
 
 export type CLICommand = {
   name: string;
   description: string;
-  callback: (state: State) => Promise<void>; 
+  callback: (state: State, ...args: string[]) => Promise<void>; 
 };
 
 
@@ -18,9 +19,15 @@ export type State = {
   commands: Record<string, CLICommand>;  
   pokeapi: PokeAPI;                      
   nextLocationsURL: string | null;       
-  prevLocationsURL: string | null;       
+  prevLocationsURL: string | null;
+pokedex: Record<string, Pokemon>;       
 };
 
+export type Pokemon = {
+  name: string;
+  base_experience: number;
+  
+};
 
 export function initState(): State {
   const rl = createInterface({
@@ -30,7 +37,7 @@ export function initState(): State {
   });
 
   const pokeapi = new PokeAPI(300000);
-
+ 
   
   const commands: Record<string, CLICommand> = {
     help: {
@@ -53,6 +60,16 @@ export function initState(): State {
       description: "Display the previous 20 location areas",
       callback: commandMapb,
     },
+    explore: {
+      name: "explore <location_area>",
+      description: "Lists the pokemon in a location area",
+      callback: commandExplore,
+    },
+    catch: {
+  name: "catch <pokemon_name>",
+  description: "Attempt to catch a pokemon",
+  callback: commandCatch,
+},
   };
 
   return {
@@ -61,5 +78,6 @@ export function initState(): State {
     pokeapi,
     nextLocationsURL: null, 
     prevLocationsURL: null,
+    pokedex: {},
   };
 }
