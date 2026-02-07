@@ -6,6 +6,7 @@ import { commandMap } from "./command_map.js";
 import { commandMapb } from "./command_mapb.js";
 import { commandExplore } from "./command_explore.js";
 import { commandCatch } from "./command_catch.js";
+import { commandInspect } from "./command_inspect.js";
 
 export type CLICommand = {
   name: string;
@@ -25,8 +26,16 @@ pokedex: Record<string, Pokemon>;
 
 export type Pokemon = {
   name: string;
-  base_experience: number;
-  
+base_experience: number;
+  height: number;
+  weight: number;
+  stats: {
+    base_stat: number;
+    stat: { name: string };
+  }[];
+  types: {
+    type: { name: string };
+  }[];
 };
 
 export function initState(): State {
@@ -69,6 +78,11 @@ export function initState(): State {
   name: "catch <pokemon_name>",
   description: "Attempt to catch a pokemon",
   callback: commandCatch,
+},
+    inspect: {
+  name: "inspect <pokemon_name>",
+  description: "View details of a caught pokemon",
+  callback: commandInspect,
 },
   };
 
