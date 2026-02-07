@@ -12,7 +12,8 @@ export function cleanInput(input: string): string[] {
 export function startREPL(state: State) {
   state.rl.prompt();
 
-  state.rl.on("line", (line) => {
+  
+  state.rl.on("line", async (line) => {
     const words = cleanInput(line);
     if (words.length === 0) {
       state.rl.prompt();
@@ -23,7 +24,12 @@ export function startREPL(state: State) {
     const command = state.commands[commandName];
 
     if (command) {
-      command.callback(state);
+      try {
+        
+        await command.callback(state);
+      } catch (err) {
+        console.error("Error executing command:", err);
+      }
     } else {
       console.log("Unknown command");
     }
