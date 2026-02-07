@@ -1,4 +1,4 @@
-#  PokéCLI
+#  PokeCLI
 A high-performance Pokedex CLI built with **TypeScript** and **Node.js**. Developed as part of the Boot.dev Backend Engineering curriculum.
 
 ##  Key Features
