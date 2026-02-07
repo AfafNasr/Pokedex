@@ -27,7 +27,7 @@ pokedex: Record<string, Pokemon>;
 
 export type Pokemon = {
   name: string;
-base_experience: number;
+  base_experience: number;
   height: number;
   weight: number;
   stats: {
