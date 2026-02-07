@@ -16,11 +16,11 @@ A high-performance Pokedex CLI built with **TypeScript** and **Node.js**. Develo
 | `inspect <name>` | View detailed stats of caught Pokémon. |
 | `pokedex` | List all Pokémon in your collection. |
 
-Tech Stack
--Language: TypeScript
--Runtime: Node.js
--API: PokeAPI
--Environment: Linux / WSL
+## Tech Stack
+*Language: TypeScript
+*Runtime: Node.js
+*API: PokeAPI
+*Environment: Linux / WSL
 
 ## Quick Start
 ```bash
